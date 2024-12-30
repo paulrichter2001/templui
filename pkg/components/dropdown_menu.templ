@@ -16,7 +16,7 @@ type DropdownMenuItem struct {
 	IconRight  templ.Component    // Optional icon on the right
 	SubItems   []DropdownMenuItem // Nested submenu items
 	Disabled   bool               // Disables the item
-	Attributes templ.Attributes   // Additional HTML attributesß
+	Attributes templ.Attributes   // Additional HTML attributes
 }
 
 type DropdownMenuProps struct {
@@ -24,6 +24,7 @@ type DropdownMenuProps struct {
 	Trigger  templ.Component    // Custom trigger element
 	Class    string             // Additional CSS classes
 	Position string             // Preferred placement
+	MenuAttributes templ.Attributes // Additional HTML attributes
 }
 
 func (d DropdownMenuItem) modifierClasses() string {
@@ -238,6 +239,7 @@ templ DropdownMenu(props DropdownMenuProps) {
 			aria-orientation="vertical"
 			aria-labelledby="dropdown-menu-button"
 			tabindex="-1"
+			{ props.MenuAttributes... }
 		>
 			<div class="py-1" role="none">
 				for index, item := range props.Items {
