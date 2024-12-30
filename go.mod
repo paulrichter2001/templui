@@ -1,4 +1,4 @@
-module github.com/axzilla/templui
+module github.com/paulrichter2001/templui
 
 go 1.23.3
 
